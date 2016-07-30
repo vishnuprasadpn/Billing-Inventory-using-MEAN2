@@ -1,0 +1,123 @@
+
+<div class="" style="background-image:url('./public/images/search.jpg');width:100%;height:970px;background-repeat:no-repeat;background-size:cover">
+	<div class=" container">
+		<div class="row" style="padding-top:5%;margin-right:0px!important">
+			<p align="right"><a href="#/login" class="btn btn-primary">Logout</a></p></br>
+			<div class="" style="margin-top:3%;background:#fff;opacity:0.9;padding:10px">
+				<table class="table" align="center" cellpadding="5px" cellspacing="5px">
+					<tr>
+							<td align="center" id="addtd"><button class="btn btn-primary" onclick="toggleAdd()">Add New Product</button></td>
+							<td align="center" id="updatetd"><button class="btn btn-warning" onclick="toggleUpdate()">Update Product</button></td>
+							<td align="center" id="removetd"><button class="btn btn-danger" onclick="toggleDelete()">Remove Product</button></td>  
+					</tr>
+				</table>
+				<table class="table" align="" cellpadding="5px" cellspacing="5px">
+					<tr id="addp" style="display:none;">
+						<td><input class="form-control" type="text" placeholder="Product Name" ng-model="add.pName"></td>
+						<td><input class="form-control" type="text" placeholder="Product Company" ng-model="add.pCompany"></td>
+						<td><input class="form-control" type="text" placeholder="Product Description" ng-model="add.pDesc"></td>
+						<td><input class="form-control" type="number" placeholder="Product Cost" ng-model="add.pCost"></td>
+						<td><input class="form-control" type="number" placeholder="Product Tax" ng-model="add.pTax"></td>
+						<td><input class="form-control" type="number" placeholder="Product Stock" ng-model="add.pStock"></td>
+						<td><button class="btn btn-primary" ng-click="addProduct()">Add</button></td>
+					
+					</tr>
+					<tr id="updatep" style="display:none;">
+						<td width="180">
+							<select class="form-control"  ng-change="populateData(update.pName)" ng-model="update.pName" ng-options="o.pName for o in options" name="Product name"  required="" >
+								<option selected disabled>Choose here</option>
+							</select>
+						</td>
+						<td><input class="form-control" type="text" placeholder="Product Company" ng-model="update.pCompany"></td>
+						<td><input class="form-control" type="text" placeholder="Product Description" ng-model="update.pDesc"></td>
+						<td><input class="form-control" type="number" placeholder="Product Cost" ng-model="update.pCost"></td>
+						<td><input class="form-control" type="number" placeholder="Product Tax" ng-model="update.pTax"></td>
+						<td><input class="form-control" type="number" placeholder="Product Stock" ng-model="update.Stock"></td>
+						<td><button class="btn btn-warning" ng-click="updateProduct(update.pName)">Update</button></td>
+					
+					</tr>
+					<tr id="removep" style="display:none;" align="center">
+						<td><p style="padding-top: 8px!important;font-weight:600"> Select to Remove :</p></td>
+						<td width="300" >
+							<select class="form-control"  ng-model="remove.pName" ng-options="o.pName for o in options" name="Product name"  required="" >
+								<option selected disabled>Choose here</option>
+							</select>
+						</td>
+						<td><button class="btn btn-danger" ng-click="removeProduct(remove.pName)">Remove</button></td>
+					</tr>
+				</table>
+				<p style="text-align:center;font-size:30px;font-weight:700;background:#fff;opacity:0.9;padding:20px">ALL PRODUCTS</p>
+			
+				<table class="table" align="" cellpadding="5px" cellspacing="5px">
+					
+
+					<tr>
+						<th style="padding:5px;border:1px solid"> Sl no </th>
+						<th style="padding:5px;border:1px solid"> Product Name </th>
+						<th style="padding:5px;border:1px solid"> Product Company </th>
+						<th style="padding:5px;border:1px solid"> Product Desc </th>
+						<th style="padding:5px;border:1px solid"> Product Cost </th>
+						<th style="padding:5px;border:1px solid"> Product Tax </th>
+						<th style="padding:5px;border:1px solid"> Product Stock </th>
+					</tr>
+					
+					<tr ng-repeat="d in details">
+						<td style="padding:5px;border:1px solid"></td>
+						<td style="padding:5px;border:1px solid">{{d.pName}}</td>
+						<td style="padding:5px;border:1px solid">{{d.pCompany}}</td>
+						<td style="padding:5px;border:1px solid">{{d.pDesc}}</td>
+						<td style="padding:5px;border:1px solid">{{d.pCost}}</td>
+						<td style="padding:5px;border:1px solid">{{d.pTax}}</td>
+						<td style="padding:5px;border:1px solid">{{d.pStock}}</td>
+					</tr>
+				</table>
+				
+			</div>
+		
+		</div>
+	</div>
+</div>
+<script>
+	function toggleAdd()
+	{		
+		if(document.getElementById("addp").style.display == "none")
+		{
+			
+				document.getElementById("addp").style.display = "block";
+				document.getElementById("updatep").style.display = "none";
+				document.getElementById("removep").style.display = "none";
+		}
+		else
+		{
+				document.getElementById("addp").style.display = "none";
+		}
+	}
+
+
+	function toggleDelete()
+	{		
+		if(document.getElementById("removep").style.display == "none")
+		{
+			document.getElementById("removep").style.display = "block";
+			document.getElementById("updatep").style.display = "none";
+			document.getElementById("addp").style.display = "none";
+		}
+		else
+		{
+				document.getElementById("updatep").style.display = "none";
+		}
+	}
+	function toggleUpdate()
+	{		
+		if(document.getElementById("updatep").style.display == "none")
+		{
+				document.getElementById("updatep").style.display = "block";
+				document.getElementById("addp").style.display = "none";
+				document.getElementById("removep").style.display = "none";
+		}
+		else
+		{
+				document.getElementById("updatep").style.display = "none";
+		}
+	}
+</script>

@@ -1,0 +1,87 @@
+﻿  body { 
+      }
+      .selectField{
+        width: 100%;
+        padding: 5px;
+      }
+  .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle!important;
+  }
+      table td{
+        padding:10px;
+      }
+      input, input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+      background:none;
+      }
+      input:focus{
+        border:1px solid #000;
+      }
+      input::-webkit-input-placeholder {
+        color: #000 !important;
+      }
+ 
+      input:-moz-placeholder { /* Firefox 18- */
+        color: #000 !important;  
+      }
+ 
+      input::-moz-placeholder {  /* Firefox 19+ */
+        color: #000 !important;  
+      }
+ 
+      input:-ms-input-placeholder {  
+        color: #000 !important;  
+      }
+      textarea{
+        background:none;
+        border:none;
+        border-bottom: 1px solid #000;
+        width:100%;
+        color: #000;
+      }
+      .heading{
+        margin:30px 20px;font-size:30px;color:#fff;
+      }
+      .normal-font1{
+        color:#000;
+        padding: 5px;
+      }
+      .normal-font{
+        color:#fff;
+        padding: 5px;
+      }
+      .input-style{
+        padding:3px;text-align:center;font-size:20px;background:#fff
+      }
+      .selectDiv{
+        margin-left: 0px!important;
+        margin-right: 0px!important;
+        color:#fff;
+      }
+      .selectDiv:hover{
+        margin-left: 0px!important;
+        margin-right: 0px!important;
+        color:#3276B1;
+        background:#fff;
+        opacity:0.9;
+        width: 100%;
+      }
+      .button-style{
+        background:none!important;
+        color:#000;
+        padding: 5px 45px;
+        cursor: pointer;
+        font-size: 20px;
+        border:1px solid #fff;
+      }
+      .button-style:hover {
+        padding: 5px 45px!important;
+        cursor: pointer;
+        background:#fff!important;
+        color: #00B5EA!important;
+      }
+      .forgot{
+        padding:20px;text-decoration:none;color:#fff;cursor:pointer
+      }
+     input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill  { 
+      background-color: #fff!important;
+    }

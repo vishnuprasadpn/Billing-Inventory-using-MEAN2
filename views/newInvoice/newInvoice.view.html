@@ -1,0 +1,109 @@
+<div style="background-image:url('./public/images/course_design.jpg');width:100%;height:970px;background-repeat:no-repeat;background-size:cover">
+	<div class="container">
+	<div class="row" style="padding-top:3%;">
+		<p align="right"><a href="#/login" class="btn btn-primary"  >Logout</a></p></br>
+	
+		<div class="col-lg-12" style="background:#fff;opacity:0.9">
+			<div style="border:1px solid #fff;">
+		<p class="heading" style="color:#000!important;">New Invoice</p>
+		<form>
+			<table class="table" align="">
+				
+				 <tr>
+					<td >Invoice No :</td>
+					<td><input class="form-control"  type="text" ng-model="vm.invoiceNumber" ng-bind="vm.invoiceNumber" name="invoiceId" required="" disabled></td>
+					<td >Invoice date :</td>
+					<td><input class="form-control"  type="text" ng-model="vm.invoiceDate" name="invoiceDate" required="" disabled ng-bind="vm.invoiceDate"></td>
+					</tr>
+				 <tr>
+					<td >Client Name :</td>
+					<td><input class="form-control"  type="text" ng-model="vm.clientName" name="invoiceId" required="" value="Client" placeholder="Client"></td>
+					<td >Client Contact :</td>
+					<td><input class="form-control"  type="number" ng-model="vm.clientContact" name="invoiceDate" required="" value="910000000000" placeholder="+91 0000 000000"></td>
+				</tr>
+			</table>
+			<table class="table" align="">
+				<tr>
+					<td width="100">Select Item :</td>
+					<td width="200">
+						<select class="form-control"  ng-change="populateData(select.pName)" ng-model="select.pName" ng-options="o.pName for o in options" required="" >
+								<option selected >Choose here</option>
+							</select>
+					</td>
+					
+					<input class="form-control"  type="number" ng-model="vm.pNos" name="pNos" required="" style="display:none;">
+					<input class="form-control"  type="text" ng-model="vm.pName" name="pName" required="" style="display:none;">
+					<input class="form-control"  type="text" ng-model="vm.pCompany" name="pCompany" required="" style="display:none;">
+					<input class="form-control"  type="text" ng-model="vm.pDesc" name="pDesc" required="" style="display:none;">
+
+					<td width="95">Unit price :</td>
+					<td width="140"><input class="form-control"  type="number" ng-model="vm.pCost" name="pCost" required=""></td>
+					<td width="55">QTY Available:</td>
+					<td width="100"><input class="form-control"  type="number" ng-model="vm.pStock" name="pStock" required="" ></td>
+					
+					<td width="55">QTY Required:</td>
+					<td width="100"><input class="form-control"  type="number" ng-model="vm.pQty" name="pQty" required="" ></td>
+					<td width="65">Tax :</td>
+					<td width="100"><input class="form-control"  type="number" ng-model="vm.pTax" name="ptax" required="" ></td>
+					<td><button class="btn btn-primary" ng-click="addToBucket(vm)">Add to Bucket</button></td>
+				</tr>
+			</table>
+			<div style="padding-top:10px;">
+				<table class="table" align="" cellpadding="5px" cellspacing="5px" style="margin-bottom:40px;">
+					<tr>
+						<th style="padding:5px;border:1px solid #E6DDDE"> No : </th>
+						<th style="padding:5px;border:1px solid #E6DDDE"> Product Name </th>
+						<th style="padding:5px;border:1px solid #E6DDDE"> Company </th>
+						<th style="padding:5px;border:1px solid #E6DDDE"> Description </th>
+						<th style="padding:5px;border:1px solid #E6DDDE"> Unit Cost </th>
+						<th style="padding:5px;border:1px solid #E6DDDE"> Quantity </th>
+						<th style="padding:5px;border:1px solid #E6DDDE"> Tax </th>
+						<th style="padding:5px;border:1px solid #E6DDDE"> Total </th>
+						<th style="padding:5px;border:1px solid #E6DDDE"> Action </th>
+						
+					</tr>
+					
+					<tr ng-repeat="d in selected.items">
+						
+						<td style="padding:5px;border:1px solid #E6DDDE">{{d.nos}}</td>
+						<td style="padding:5px;border:1px solid #E6DDDE">{{d.pName}}</td>
+						<td style="padding:5px;border:1px solid #E6DDDE">{{d.pCompany}}</td>
+						<td style="padding:5px;border:1px solid #E6DDDE">{{d.pDesc}}</td>
+						<td style="padding:5px;border:1px solid #E6DDDE">{{d.pCost}}</td>
+						<td style="padding:5px;border:1px solid #E6DDDE">{{d.pQty}}</td>
+
+						<td style="padding:5px;border:1px solid #E6DDDE">{{d.pTax}}</td> 
+						<td style="padding:5px;border:1px solid #E6DDDE">{{d.pTotal}}</td>
+
+						<td style="padding:5px;border:1px solid #E6DDDE"><!-- 
+							<button class="btn btn-warning">Edit</button> -->
+							<button class="btn btn-danger" ng-click="removeProduct(d.$$hashKey)">Remove</button>
+						</td>
+					</tr>
+				</table>
+				<table class="table" align="center">
+					<tr>
+						<td >Total :</td>
+						<td ><input class="form-control"  type="number" ng-model="tot" name="tot" required="" ng-bind="{{vm.tot}}" disabled=""></td>
+						<!-- <td >Discount Offered :</td>
+						<td ><input class="form-control"  type="number" ng-model="vm.Dis" name="Discount" required="" disabled=""></td>
+						 --><td >Note For Client :</td>
+						<td ><textarea class="form-control"  type="text" ng-model="Note" name="Notes"></textarea></td>
+					
+					</tr>
+				</table>
+				<table class="table" align="center">
+					<tr>
+						<td align="center"><button class="btn btn-primary" ng-click="purchase(vm)">Purchase Items</button></td>
+						<td align="center"><button class="btn btn-warning">Clear All</button></td>
+						<td align="center"><button class="btn btn-danger">Cancel Purchase</button></td>
+					</tr>
+				</table>
+			</div>
+	</form>
+	</div>
+		</div>
+		<div class="col-sm-1 col-md-3"></div>
+	</div>
+	
+</div>
