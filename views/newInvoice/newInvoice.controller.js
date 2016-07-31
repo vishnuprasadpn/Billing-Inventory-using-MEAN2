@@ -12,7 +12,7 @@
         $scope.selected.items.splice(0,1);
         $scope.pNos=0;
         $scope.tot=0;
-
+        $scope.update={items:[{}]};
         
         $http.get('/allinvoices').success(function(response)
         {
@@ -63,10 +63,10 @@
         }
         $scope.addToBucket = function(product)
         {
-                //console.log(product.pName);
+            //console.log($scope.vm.pStock);
                 product.pTotal = product.pCost * product.pQty;
                 $scope.pNos = $scope.pNos +1;
-                $scope.selected.items.push({nos:$scope.pNos,pName:product.pName,pCompany:$scope.vm.pCompany,pDesc:$scope.vm.pDesc,pCost:product.pCost,pQty:product.pQty,pTax:product.pTax,pTotal:product.pTotal});
+                $scope.selected.items.push({nos:$scope.pNos,pName:product.pName,pCompany:$scope.vm.pCompany,pDesc:$scope.vm.pDesc,pCost:product.pCost,pStock:$scope.vm.pStock,pQty:product.pQty,pTax:product.pTax,pTotal:product.pTotal});
                 $scope.tot= product.pCost + $scope.tot; 
         
                 //console.log(product.pCost);
@@ -99,13 +99,25 @@
         }
         $scope.purchase = function(products)
         {
+            //console.log($scope.selected);
+            var i;
+            for(i=0;i<$scope.selected.items.length;i++)
+            {
+                var stock = $scope.selected.items[i].pStock - $scope.selected.items[i].pQty;
+                var data = {pStock :stock, pName :$scope.selected.items[i].pName} 
+                $http.put('/updateStock/', data).success(function(response)
+                {
+                    console.log("stock update success");
+                });
+    
+            }
+
             var data = {invoiceNo : products.invoiceNumber,invoiceDate: products.invoiceDate,clientName:$scope.vm.clientName,clientContact:$scope.vm.clientContact,totalAmount:$scope.tot,note:$scope.Note};
             //console.log(data);
             $http.post('/insertTOinvoice',data).success(function(response){
-            console.log(response);
-            alert("Success")
-           
-        });
+            //console.log(response);
+            alert("Success");
+            });
     
             
         }

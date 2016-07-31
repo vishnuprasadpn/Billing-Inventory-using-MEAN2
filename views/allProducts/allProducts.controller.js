@@ -23,7 +23,7 @@
                     $scope.update.pCost = parseInt($scope.details[i].pCost);
                     $scope.update.pTax = parseInt($scope.details[i].pTax);
                     $scope.update.Stock = parseInt($scope.details[i].pStock);
-                   // console.log($scope.update);
+                    // console.log($scope.update);
                 }
             }
         }

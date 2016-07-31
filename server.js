@@ -135,6 +135,16 @@ app.delete('/removeInvoice/:invoice', function(req , res) {
 
 /**************************************** To get fee Installment *********************************/
 
+app.put('/updateStock', function(req , res) 
+{
+  console.log(req.body);
+  db.products.findAndModify({query:{pName: req.body.pName},update:{$set: {pStock:req.body.pStock}},
+  new:true}, function(err, doc)
+  {
+    res.json(doc);
+  })
+});
+
 app.listen(3000, function () {
   console.log('Example app listening on port !' + '3000');
 });
