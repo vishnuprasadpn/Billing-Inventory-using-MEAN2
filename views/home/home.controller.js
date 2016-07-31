@@ -10,6 +10,8 @@
         var vm = this;
         vm.newInvoice = newInvoice;
         vm.allProducts = allProducts;
+        vm.allInvoices = allInvoices;
+        vm.settings = settings;
         
         function newInvoice() 
         {
@@ -18,6 +20,14 @@
         function allProducts() 
         {
             $location.path('/allProducts');
+        };
+        function allInvoices() 
+        {
+            $location.path('/allInvoices');
+        };
+        function settings() 
+        {
+            $location.path('/settings');
         };
         
     }

@@ -36,6 +36,16 @@
                 templateUrl: 'views/allProducts/allProducts.view.html',
                 controllerAs: 'vm'
             })
+            .when('/allInvoices', {
+                controller: 'allInvoices',
+                templateUrl: 'views/allInvoices/allInvoices.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/settings', {
+                controller: 'settings',
+                templateUrl: 'views/settings/settings.view.html',
+                controllerAs: 'vm'
+            })
             .otherwise({ redirectTo: '/login' });
     }
 

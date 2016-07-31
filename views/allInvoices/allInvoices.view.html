@@ -1,0 +1,84 @@
+
+<div class="" style="background-image:url('./public/images/search.jpg');width:100%;height:970px;background-repeat:no-repeat;background-size:cover">
+	<div class=" container">
+		<div class="row" style="padding-top:5%;margin-right:0px!important">
+			<p align="right"><a href="#/login" class="btn btn-primary">Logout</a></p></br>
+			<div class="" style="margin-top:3%;background:#fff;opacity:0.9;padding:10px">
+				<p style="text-align:center;font-size:30px;font-weight:700;background:#fff;opacity:0.9;padding:20px">ALL INVOICES</p>
+			
+				<table class="table" align="" cellpadding="5px" cellspacing="5px">
+					
+
+					<tr>
+						<th style="padding:5px;border:1px solid"> Invoice Number </th>
+						<th style="padding:5px;border:1px solid"> Invoice Date </th>
+						<th style="padding:5px;border:1px solid"> Client Name </th>
+						<th style="padding:5px;border:1px solid"> Client Contact </th>
+						<th style="padding:5px;border:1px solid"> Total Amount </th>
+						<th style="padding:5px;border:1px solid;width:300px"> Note </th>
+						<th style="padding:5px;border:1px solid"> Action </th>
+					</tr>
+					
+					<tr ng-repeat="invoice in allinvoices">
+						<td style="padding:5px;border:1px solid">{{invoice.invoiceNo}}</td>
+						<td style="padding:5px;border:1px solid">{{invoice.invoiceDate}}</td>
+						<td style="padding:5px;border:1px solid">{{invoice.clientName}}</td>
+						<td style="padding:5px;border:1px solid">{{invoice.clientContact}}</td>
+						<td style="padding:5px;border:1px solid">{{invoice.totalAmount}}</td>
+						<td style="padding:5px;border:1px solid">{{invoice.note}}</td>
+						<td style="padding:5px;border:1px solid" align="center"><button class="btn btn-danger" ng-click="removeInvoice(invoice.invoiceNo)">Remove</button></td>
+					</tr>
+				</table>
+				
+			</div>
+		
+		</div>
+
+	</div>
+</div>
+<script>
+	function toggleAdd()
+	{		
+		if(document.getElementById("addp").style.display == "none")
+		{
+			
+				document.getElementById("addp").style.display = "block";
+				document.getElementById("updatep").style.display = "none";
+				document.getElementById("removep").style.display = "none";
+		}
+		else
+		{
+				document.getElementById("addp").style.display = "none";
+		}
+	}
+
+
+	function toggleDelete()
+	{		
+		if(document.getElementById("removep").style.display == "none")
+		{
+			document.getElementById("removep").style.display = "block";
+			document.getElementById("updatep").style.display = "none";
+			document.getElementById("addp").style.display = "none";
+		}
+		else
+		{
+				document.getElementById("updatep").style.display = "none";
+				document.getElementById("removep").style.display = "none";
+			
+		}
+	}
+	function toggleUpdate()
+	{		
+		if(document.getElementById("updatep").style.display == "none")
+		{
+				document.getElementById("updatep").style.display = "block";
+				document.getElementById("addp").style.display = "none";
+				document.getElementById("removep").style.display = "none";
+		}
+		else
+		{
+				document.getElementById("updatep").style.display = "none";
+		}
+	}
+</script>

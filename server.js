@@ -112,7 +112,7 @@ app.get('/allinvoices', function(req , res)
   })  
 });
 
-/***************************************** to search Details *************************************/
+/***************************************** To insert to invoice table *************************************/
 
 app.post('/insertTOinvoice', function(req , res) {
   //console.log(req.body);
@@ -120,7 +120,18 @@ app.post('/insertTOinvoice', function(req , res) {
     res.json(doc);
   })
 });
-/**************************************** to check availability **********************************/
+
+/**************************************** To get all Invoices **********************************/
+
+app.delete('/removeInvoice/:invoice', function(req , res) {
+  var invo = req.params.invoice;
+  console.log(invo);
+  db.invoices.remove({invoiceNo: invo}, function(err, doc){
+    console.log(doc);
+    res.json(doc);
+  })
+  
+});
 
 /**************************************** To get fee Installment *********************************/
 
