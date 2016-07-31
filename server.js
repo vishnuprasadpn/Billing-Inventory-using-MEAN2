@@ -122,16 +122,16 @@ app.post('/insertTOinvoice', function(req , res) {
 });
 
 /**************************************** To get all Invoices **********************************/
-
 app.delete('/removeInvoice/:invoice', function(req , res) {
-  var invo = req.params.invoice;
+  var invo = parseInt(req.params.invoice);
   console.log(invo);
   db.invoices.remove({invoiceNo: invo}, function(err, doc){
-    console.log(doc);
     res.json(doc);
   })
   
 });
+
+
 
 /**************************************** To get fee Installment *********************************/
 

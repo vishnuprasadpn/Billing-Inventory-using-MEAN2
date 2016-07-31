@@ -10,11 +10,7 @@
     {
         
         refresh();   
-         $http.get('/allinvoices').success(function(response)
-        {
-            $scope.allinvoices = response;
-            console.log($scope.allinvoices);    
-        });  
+          
 
         $scope.removeInvoice = function(invoice)
         {
@@ -24,11 +20,16 @@
             console.log(response);
             });
         };
-
-
-    }
-    function refresh()
+        function refresh()
     {
-     
+         $http.get('/allinvoices').success(function(response)
+        {
+            $scope.allinvoices = response;
+            console.log($scope.allinvoices);    
+        });
     }
+
+
+    }
+    
 })();
