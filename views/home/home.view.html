@@ -1,20 +1,25 @@
 <div style="background-image:url('./public/images/scroll1.jpg');width:100%;height:970px;background-repeat:no-repeat;background-size:cover">
-	<div  class="" style="padding-top:4%;" >
+	<div  class="container " style="padding-top:4%;" >
 		<!-- <p style="color:#fff;font-size:38px;padding-left:3%;font-weight:700">Hi {{vm.username}}!</p>
 		 -->
 		 <p align="right" style="padding-right:4%;"><a href="#/login" class="btn btn-primary">Logout</a></p></br>
-
-		<div class="row selectDiv" style="height:100px;cursor:pointer" ng-click="vm.addCourse()">
-			<h2 style="padding-left:3%;">New Invoice &nbsp;<i class="fa fa-graduation-cap" aria-hidden="true"></i></h2>
+		 <div class="row" style="padding-top:8%">
+			<div class="col-lg-5 selectDiv " align="center" ng-click="vm.newInvoice()">
+				<h1><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp; New Invoice &nbsp;&nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i></h1>
+			</div>
+			<div class="col-lg-2"></div>
+			<div class="col-lg-5 selectDiv" align="center" ng-click="vm.allProducts()">
+				<h1><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp; Stock Details &nbsp;&nbsp;<i class="fa fa-truck" aria-hidden="true"></i></h1>
+			</div>
 		</div>
-		<div class="row selectDiv" style="height:100px;cursor:pointer" ng-click="vm.enrollStudent()">
-			<h2 style="padding-left:3%;">Add New Stock &nbsp;<i class="fa fa-plus" aria-hidden="true"></i></h2>
-		</div>
-		<div class="row selectDiv" style="height:100px;cursor:pointer" ng-click="vm.searchDetail()">
-			<h2 style="padding-left:3%;">Stock Details &nbsp;<i class="fa fa-search" aria-hidden="true"></i></h2>
-		</div>
-		<div class="row selectDiv" style="height:100px;cursor:pointer" ng-click="vm.feeInstall()">
-			<h2 style="padding-left:3%;">Settings &nbsp;<i class="fa fa-money" aria-hidden="true"></i></h2>
+		<div class="row" style="padding-top:3%">
+			<div class="col-lg-5 selectDiv " align="center" ng-click="vm.allInvoices()">
+				<h1><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp; View Invoices &nbsp;&nbsp;<i class="fa fa-print" aria-hidden="true"></i></h1>
+			</div>
+			<div class="col-lg-2"></div>
+			<div class="col-lg-5 selectDiv" align="center" ng-click="vm.settings()">
+				<h1><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp; App Settings &nbsp;&nbsp;<i class="fa fa-cogs" aria-hidden="true"></i></h1>
+			</div>
 		</div>
 	</div>
 

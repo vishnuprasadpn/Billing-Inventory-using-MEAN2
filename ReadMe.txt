@@ -5,6 +5,7 @@ Application Technologies used:
 > ANGULAR JS
 > NODE JS
 > JAVASCRIPT
+> MONGO DB
 
 Installments Required:
 ---------------------

@@ -8,27 +8,17 @@
     function HomeController($rootScope, $location) 
     {
         var vm = this;
-        vm.username = $rootScope.globals.currentUser.username;
-        vm.addCourse = addCourse;
-        vm.enrollStudent = enrollStudent;
-        vm.searchDetail = searchDetail;
-        vm.feeInstall = feeInstall;
+        vm.newInvoice = newInvoice;
+        vm.allProducts = allProducts;
         
-        function addCourse() 
+        function newInvoice() 
         {
-            $location.path('/addcourse');
+            $location.path('/newInvoice');
         };
-        function enrollStudent() 
+        function allProducts() 
         {
-            $location.path('/enrollStudent');
+            $location.path('/allProducts');
         };
-        function searchDetail() 
-        {
-            $location.path('/searchDetail');
-        };
-        function feeInstall() 
-        {
-            $location.path('/feeInstall');
-        };
+        
     }
 })();
