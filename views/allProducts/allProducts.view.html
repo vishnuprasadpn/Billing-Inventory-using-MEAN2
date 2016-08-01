@@ -2,8 +2,14 @@
 <div class="" style="background-image:url('./public/images/search.jpg');width:100%;height:970px;background-repeat:no-repeat;background-size:cover">
 	<div class=" container">
 		<div class="row" style="padding-top:5%;margin-right:0px!important">
-			<p align="right"><a href="#/login" class="btn btn-primary">Logout</a></p></br>
-			<div class="" style="margin-top:3%;background:#fff;opacity:0.9;padding:10px">
+			
+			<div class="col-lg-6" align="left" style="padding-bottom:20px">
+				<a href="#/home" class="btn btn-primary">Back to Home</a>
+			</div>
+			<div class="col-lg-6" align="right" style="padding-bottom:20px">
+				<a href="#/login" class="btn btn-danger">Logout</a>
+			</div>
+			<div class="" style="margin-top:6%;background:#fff;opacity:0.9;padding:10px">
 				<table class="table" align="center" cellpadding="5px" cellspacing="5px">
 					<tr>
 							<td align="center" id="addtd"><button class="btn btn-primary" onclick="toggleAdd()">Add New Product</button></td>
@@ -11,7 +17,7 @@
 							<td align="center" id="removetd"><button class="btn btn-danger" onclick="toggleDelete()">Remove Product</button></td>  
 					</tr>
 				</table>
-				<table class="table" align="" cellpadding="5px" cellspacing="5px">
+				<table class="table" align="" cellpadding="5px" cellspacing="5px" style="margin-bottom:0px!important">
 					<tr id="addp" style="display:none;">
 						<td><input class="form-control" type="text" placeholder="Product Name" ng-model="add.pName"></td>
 						<td><input class="form-control" type="text" placeholder="Product Company" ng-model="add.pCompany"></td>
@@ -24,7 +30,7 @@
 					</tr>
 					<tr id="updatep" style="display:none;">
 						<td width="180">
-							<select class="form-control"  ng-change="populateData(update.pName)" ng-model="update.pName" ng-options="o.pName for o in options" name="Product name"  required="" >
+							<select class="form-control"  ng-change="populateData(update.pName)" ng-model="update.pName" ng-options="o.pName for o in options | orderBy:'pName'" name="Product name"  required="" >
 								<option selected disabled>Choose here</option>
 							</select>
 						</td>
@@ -39,7 +45,7 @@
 					<tr id="removep" style="display:none;" align="center">
 						<td><p style="padding-top: 8px!important;font-weight:600"> Select to Remove :</p></td>
 						<td width="300" >
-							<select class="form-control"  ng-model="remove.pName" ng-options="o.pName for o in options" name="Product name"  required="" >
+							<select class="form-control"  ng-model="remove.pName" ng-options="o.pName for o in options | orderBy:'pName'" name="Product name"  required="" >
 								<option selected disabled>Choose here</option>
 							</select>
 						</td>
@@ -47,31 +53,33 @@
 					</tr>
 				</table>
 				<p style="text-align:center;font-size:30px;font-weight:700;background:#fff;opacity:0.9;padding:20px">ALL PRODUCTS</p>
-			
-				<table class="table" align="" cellpadding="5px" cellspacing="5px">
+				<div>
+				<table class="table" align="" cellpadding="5px" cellspacing="5px" style="margin-bottom:0px!important">
 					
 
 					<tr>
-						<th style="padding:5px;border:1px solid"> Sl no </th>
-						<th style="padding:5px;border:1px solid"> Product Name </th>
-						<th style="padding:5px;border:1px solid"> Product Company </th>
-						<th style="padding:5px;border:1px solid"> Product Desc </th>
-						<th style="padding:5px;border:1px solid"> Product Cost </th>
-						<th style="padding:5px;border:1px solid"> Product Tax </th>
-						<th style="padding:5px;border:1px solid"> Product Stock </th>
-					</tr>
-					
-					<tr ng-repeat="d in details">
-						<td style="padding:5px;border:1px solid"></td>
-						<td style="padding:5px;border:1px solid">{{d.pName}}</td>
-						<td style="padding:5px;border:1px solid">{{d.pCompany}}</td>
-						<td style="padding:5px;border:1px solid">{{d.pDesc}}</td>
-						<td style="padding:5px;border:1px solid">{{d.pCost}}</td>
-						<td style="padding:5px;border:1px solid">{{d.pTax}}</td>
-						<td style="padding:5px;border:1px solid">{{d.pStock}}</td>
+						<th style="padding:5px;border:1px solid" width="164"> Product Name </th>
+						<th style="padding:5px;border:1px solid" width="206"> Product Company </th>
+						<th style="padding:5px;border:1px solid" width="228"> Product Description </th>
+						<th style="padding:5px;border:1px solid" width="155"> Product Cost </th>
+						<th style="padding:5px;border:1px solid" width="143"> Product Tax </th>
+						<th style="padding:5px;border:1px solid" width="168"> Product Stock </th>
 					</tr>
 				</table>
-				
+				</div>
+				<div style="overflow-y: auto;max-height: 500px;">
+				<table class="table" align="" cellpadding="5px" cellspacing="5px" style="background:#F1F1F1">
+									
+					<tr ng-repeat="d in details | orderBy:'pName'">
+						<td style="padding:5px;border:1px solid" width="164">{{d.pName}}</td>
+						<td style="padding:5px;border:1px solid" width="206">{{d.pCompany}}</td>
+						<td style="padding:5px;border:1px solid" width="228">{{d.pDesc}}</td>
+						<td style="padding:5px;border:1px solid" width="155">{{d.pCost}}</td>
+						<td style="padding:5px;border:1px solid" width="143">{{d.pTax}}</td>
+						<td style="padding:5px;border:1px solid" width="168">{{d.pStock}}</td>
+					</tr>
+				</table>
+				</div>
 			</div>
 		
 		</div>

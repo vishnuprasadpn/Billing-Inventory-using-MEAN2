@@ -2,9 +2,14 @@
 <div class="" style="background-image:url('./public/images/search.jpg');width:100%;height:970px;background-repeat:no-repeat;background-size:cover">
 	<div class=" container">
 		<div class="row" style="padding-top:5%;margin-right:0px!important;">
-			<p align="right"><a href="#/login" class="btn btn-primary">Logout</a></p></br>
-
-			<p style="text-align:center;font-size:30px;font-weight:700;background:#fff;opacity:0.9;padding:20px">ALL INVOICES</p>
+			
+			<div class="col-lg-6" align="left" style="padding-bottom:20px">
+				<a href="#/home" class="btn btn-primary">Back to Home</a>
+			</div>
+			<div class="col-lg-6" align="right" style="padding-bottom:20px">
+				<a href="#/login" class="btn btn-danger">Logout</a>
+			</div>
+			<p style="text-align:center;font-size:30px;font-weight:700;background:#fff;opacity:0.9;padding:20px;margin-top: 60px;">ALL INVOICES</p>
 			<div style="background:#fff;opacity:0.9;padding:20px">
 			<div class="" style="background:#fff;opacity:0.9;padding-top:20px!important;padding-right: 17px;">
 			
@@ -24,7 +29,7 @@
 			</div>
 			<div class="" style="background:#fff;opacity:0.9;overflow-y: auto;max-height: 500px;">
 			
-				<table class="table" align="" cellpadding="5px" cellspacing="5px">
+				<table class="table" align="" cellpadding="5px" cellspacing="5px" style="background:#F1F1F1">
 				
 					<tr ng-repeat="invoice in allinvoices">
 						<td style="padding:5px;border:1px solid"  width="158">{{invoice.invoiceNo}}</td>

@@ -66,7 +66,8 @@
                 for(i=0;i<values.length;i++)
                 {
                     $scope.options.push({pName:values[i].pName});
-                }     
+                } 
+                $scope.add="";    
             });
       
         }   
